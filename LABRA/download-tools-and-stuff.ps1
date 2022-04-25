@@ -77,4 +77,8 @@ if (!(Test-Path $bginfodownload)) { md $bginfodownload }
 Invoke-WebRequest -uri https://download.sysinternals.com/files/BGInfo.zip -Outfile "$bginfodownload\BGInfo.zip"
 #endregion bginfo
 
+#todo:
+# - security baselines
+# - policy analyzer
+
 #endregion general good download
