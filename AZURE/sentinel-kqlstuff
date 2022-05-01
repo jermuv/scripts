@@ -1,0 +1,25 @@
+Event
+| where EventLog == "System"
+| project EventID
+| distinct EventID
+| order by EventID asc
+
+Event
+| where EventLog == "System"
+| summarize count() by EventID
+| order by count_
+
+Event
+| where EventLog == "System"
+| where EventID != "16969"
+
+Event
+| project EventLog
+| distinct EventLog
+
+Event
+| where EventLog == "Directory Service"
+
+Heartbeat
+| order by TimeGenerated desc
+| take 2
