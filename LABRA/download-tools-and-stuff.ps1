@@ -1,7 +1,7 @@
 #region general good download
 
 #region downloadfolder variable + generation
-$download = "c:\temp5"
+$download = "c:\utils"
 if ($debug) { write-host $download }
 if (!(Test-Path $download)) { md $download }
 #endregion downloadfolder
@@ -77,8 +77,48 @@ if (!(Test-Path $bginfodownload)) { md $bginfodownload }
 Invoke-WebRequest -uri https://download.sysinternals.com/files/BGInfo.zip -Outfile "$bginfodownload\BGInfo.zip"
 #endregion bginfo
 
+#region wac
+$wacdownload = "$download\wac"
+if ($debug) { write-host $wacdownload }
+if (!(Test-Path $wacdownload)) { md $wacdownload }
+Invoke-WebRequest -uri https://aka.ms/wacdownload -Outfile "$wacdownload\WindowsAdminCenter.msi"
+#endregion wac
+
+#region sysinternals
+$sysinternalsdownload = "$download\sysinternals"
+if ($debug) { write-host $sysinternalsdownload }
+if (!(Test-Path $sysinternalsdownload)) { md $sysinternalsdownload }
+Invoke-WebRequest -uri https://download.sysinternals.com/files/SysinternalsSuite.zip -OutFile "$sysinternalsdownload\SysinternalsSuite.zip"
+Expand-Archive -path $sysinternalsdownload\SysinternalsSuite.zip -DestinationPath $sysinternalsdownload
+#endregion sysinternals
+
+#region security baseline
+$securitybaselines = "$download\securitybaselines"
+if ($debug) { write-host $securitybaselines }
+if (!(Test-Path $securitybaselines)) { md $securitybaselines }
+
+#tools
+Invoke-WebRequest -uri https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/PolicyAnalyzer.zip -OutFile "$securitybaselines\PolicyAnalyzer.zip"
+Invoke-WebRequest -uri https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/LGPO.zip -OutFile "$securitybaselines\LGPO.zip"
+
+#servers
+Invoke-WebRequest -uri https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/Windows%20Server%202022%20Security%20Baseline.zip -OutFile "$securitybaselines\Windows Server 2022 Security Baseline.zip"
+Invoke-WebRequest -uri https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/Windows%20Server%202012%20R2%20Security%20Baseline.zip -OutFile "$securitybaselines\Windows Server 2012 R2 Security Baseline.zip"
+Invoke-WebRequest -uri https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/Windows%2010%20Version%201809%20and%20Windows%20Server%202019%20Security%20Baseline.zip -OutFile "$securitibaselines\Windows 10 Version 1809 and Windows Server 2019 Security Baseline.zip"
+Invoke-WebRequest -uri https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/Windows%2010%20Version%201607%20and%20Windows%20Server%202016%20Security%20Baseline.zip -OutFile "$securitybaselines\Windows 10 Version 1607 and Windows Server 2016 Security Baseline.zip"
+
+#clients
+Invoke-WebRequest -uri https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/Windows%2011%20Security%20Baseline.zip -Outfile "$securitybaselines\Windows 11 Security Baseline.zip"
+Invoke-WebRequest -uri https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/Windows%2010%20version%2021H2%20Security%20Baseline.zip -OutFile "$securitybaselines\Windows 10 version 21H2 Security Baseline.zip"
+
+#other
+Invoke-WebRequest -uri https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/Microsoft%20Edge%20v98%20Security%20Baseline.zip -Outfile "$securitybaselines\Microsoft Edge v98 Security Baseline.zip"
+#endregion
+
+
+
+
 #todo:
-# - security baselines
-# - policy analyzer
+
 
 #endregion general good download
