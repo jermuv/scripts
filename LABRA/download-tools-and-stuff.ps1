@@ -3,7 +3,7 @@
 #region downloadfolder variable + generation
 $download = "c:\utils"
 if ($debug) { write-host $download }
-if (!(Test-Path $download)) { md $download }
+if (!(Test-Path $download)) { mkdir $download }
 #endregion downloadfolder
 
 #region clear download folder
@@ -13,7 +13,7 @@ if ($download.length -ge 4) { Get-ChildItem $download | Remove-Item -Recurse -Fo
 #region laps download
 $lapsdownload = "$download\laps"
 if ($debug) { write-host $lapsdownload }
-if (!(Test-Path $lapsdownload)) { md $lapsdownload }
+if (!(Test-Path $lapsdownload)) { mkdir $lapsdownload }
 invoke-webrequest -uri https://download.microsoft.com/download/C/7/A/C7AAD914-A8A6-4904-88A1-29E657445D03/LAPS.x64.msi -outfile "$lapsdownload\LAPS.x64.msi"
 "LAPS_TechnicalSpecification.docx","LAPS_OperationsGuide.docx" | ForEach-Object { invoke-webrequest -uri "https://download.microsoft.com/download/C/7/A/C7AAD914-A8A6-4904-88A1-29E657445D03/$_" -outfile "$lapsdownload\$_" }
 #endregion laps
@@ -23,21 +23,21 @@ invoke-webrequest -uri https://download.microsoft.com/download/C/7/A/C7AAD914-A8
 # http://go.microsoft.com/fwlink/?linkid=74689
 $wsusdownload = "$download\wsuscab"
 if ($debug) { write-host $wsusdownload }
-if (!(Test-Path $wsusdownload)) { md $wsusdownload }
+if (!(Test-Path $wsusdownload)) { mkdir $wsusdownload }
 invoke-webrequest -uri http://go.microsoft.com/fwlink/?linkid=74689 -outfile "$wsusdownload\wsusscn2.cab"
 #endregion wsus cab
 
 #region dotnet
 $dotnetdownload = "$download\dotnet"
 if ($debug) { write-host $dotnetdownload }
-if (!(Test-Path $dotnetdownload)) { md $dotnetdownload }
+if (!(Test-Path $dotnetdownload)) { mkdir $dotnetdownload }
 invoke-webrequest -uri https://go.microsoft.com/fwlink/?linkid=2088631 -outfile "$dotnetdownload\netframework48_offline.exe"
 #endregion dotnet
 
 #region edge offline install
 $edgeofflinedownload = "$download\edgeoffline"
 if ($debug) { write-host $edgeofflinedownload }
-if (!(Test-Path $edgeofflinedownload)) { md $edgeofflinedownload }
+if (!(Test-Path $edgeofflinedownload)) { mkdir $edgeofflinedownload }
 invoke-webrequest -uri http://go.microsoft.com/fwlink/?LinkID=2093437 -OutFile "$edgeofflinedownload\MicrosoftEdgeEnterpriseX64.msi"
 #endregion edge offline
 
@@ -45,49 +45,49 @@ invoke-webrequest -uri http://go.microsoft.com/fwlink/?LinkID=2093437 -OutFile "
 # https://aka.ms/pbiSingleInstaller
 $powerbidesktop = "$download\powerbidesktop"
 if ($debug) { write-host $powerbidesktop }
-if (!(Test-Path $powerbidesktop)) { md $powerbidesktop }
+if (!(Test-Path $powerbidesktop)) { mkdir $powerbidesktop }
 invoke-webrequest -uri https://download.microsoft.com/download/8/8/0/880BCA75-79DD-466A-927D-1ABF1F5454B0/PBIDesktopSetup_x64.exe -Outfile "$powerbidesktop\PBIDesktopSetup_x64.exe"
 #endregion powerbi desktop
 
 #region powerbi gateway
 $powerbigateway = "$download\powerbigateway"
 if ($debug) { write-host $powerpowerbigateway }
-if (!(Test-Path $powerbigateway)) { md $powerbigateway }
+if (!(Test-Path $powerbigateway)) { mkdir $powerbigateway }
 invoke-webrequest -uri https://go.microsoft.com/fwlink/?LinkId=2116849 -OutFile "$powerbigateway\GatewayInstall.exe"
 #endregion powerbi gateway
 
 #region mma download
 $mmadownload = "$download\mma"
 if ($debug) { write-host $mmadownload }
-if (!(Test-Path $mmadownload)) { md $mmadownload }
-invoke-webrequest -uri https://go.microsoft.com/fwlink/?LinkId=828603 -outfile "$mmadownload\MMASetup-AMD64.exe"
+if (!(Test-Path $mmadownload)) { mkdir $mmadownload }
+invoke-webrequest -uri https://go.microsoft.com/fwlink/?LinkId=828603 -outfile "$mmadownload\MMASetup-Amkdir64.exe"
 #endregion mma download
 
 #region aad connect
 $aadconnectdownload = "$download\aadconnect"
 if ($debug) { write-host $aadconnectdownload }
-if (!(Test-Path $aadconnectdownload)) { md $aadconnectdownload }
+if (!(Test-Path $aadconnectdownload)) { mkdir $aadconnectdownload }
 invoke-webrequest -uri https://download.microsoft.com/download/B/0/0/B00291D0-5A83-4DE7-86F5-980BC00DE05A/AzureADConnect.msi -outfile "$aadconnectdownload\AzureADConnect.msi"
 #endregion aad connect
 
 #region bginfo
 $bginfodownload = "$download\bginfo"
 if ($debug) { write-host $bginfodownload }
-if (!(Test-Path $bginfodownload)) { md $bginfodownload }
+if (!(Test-Path $bginfodownload)) { mkdir $bginfodownload }
 Invoke-WebRequest -uri https://download.sysinternals.com/files/BGInfo.zip -Outfile "$bginfodownload\BGInfo.zip"
 #endregion bginfo
 
 #region wac
 $wacdownload = "$download\wac"
 if ($debug) { write-host $wacdownload }
-if (!(Test-Path $wacdownload)) { md $wacdownload }
+if (!(Test-Path $wacdownload)) { mkdir $wacdownload }
 Invoke-WebRequest -uri https://aka.ms/wacdownload -Outfile "$wacdownload\WindowsAdminCenter.msi"
 #endregion wac
 
 #region sysinternals
 $sysinternalsdownload = "$download\sysinternals"
 if ($debug) { write-host $sysinternalsdownload }
-if (!(Test-Path $sysinternalsdownload)) { md $sysinternalsdownload }
+if (!(Test-Path $sysinternalsdownload)) { mkdir $sysinternalsdownload }
 Invoke-WebRequest -uri https://download.sysinternals.com/files/SysinternalsSuite.zip -OutFile "$sysinternalsdownload\SysinternalsSuite.zip"
 Expand-Archive -path $sysinternalsdownload\SysinternalsSuite.zip -DestinationPath $sysinternalsdownload
 #endregion sysinternals
@@ -95,14 +95,14 @@ Expand-Archive -path $sysinternalsdownload\SysinternalsSuite.zip -DestinationPat
 #region swiftonsecurity sysmon
 $sysmonconfig = "$download\sysmonconfig"
 if ($debug) { write-host $sysmonconfig }
-if (!(Test-Path $sysmonconfig)) { md $sysmonconfig }
+if (!(Test-Path $sysmonconfig)) { mkdir $sysmonconfig }
 Invoke-WebRequest -uri https://raw.githubusercontent.com/SwiftOnSecurity/sysmon-config/master/sysmonconfig-export.xml -Outfile "$sysmonconfig\sysmonconfig-export.xml"
 #endregion
 
 #region security baseline
 $securitybaselines = "$download\securitybaselines"
 if ($debug) { write-host $securitybaselines }
-if (!(Test-Path $securitybaselines)) { md $securitybaselines }
+if (!(Test-Path $securitybaselines)) { mkdir $securitybaselines }
 
 #tools
 Invoke-WebRequest -uri https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/PolicyAnalyzer.zip -OutFile "$securitybaselines\PolicyAnalyzer.zip"
