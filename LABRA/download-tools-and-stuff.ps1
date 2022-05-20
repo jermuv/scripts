@@ -92,6 +92,13 @@ Invoke-WebRequest -uri https://download.sysinternals.com/files/SysinternalsSuite
 Expand-Archive -path $sysinternalsdownload\SysinternalsSuite.zip -DestinationPath $sysinternalsdownload
 #endregion sysinternals
 
+#region swiftonsecurity sysmon
+$sysmonconfig = "$download\sysmonconfig"
+if ($debug) { write-host $sysmonconfig }
+if (!(Test-Path $sysmonconfig)) { md $sysmonconfig }
+Invoke-WebRequest -uri https://raw.githubusercontent.com/SwiftOnSecurity/sysmon-config/master/sysmonconfig-export.xml -Outfile "$sysmonconfig\sysmonconfig-export.xml"
+#endregion
+
 #region security baseline
 $securitybaselines = "$download\securitybaselines"
 if ($debug) { write-host $securitybaselines }
