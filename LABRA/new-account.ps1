@@ -14,3 +14,6 @@ if (!(get-aduser -filter "samaccountname -eq 't54.jermu'"))
     -DisplayName "Jermu Virtanen (t0)" `
     -Enabled $True
     } else { write-host "user found, nothing is done" }
+
+
+    #ref: https://adamtheautomator.com/new-aduser
