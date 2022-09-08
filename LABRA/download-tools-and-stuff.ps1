@@ -111,7 +111,7 @@ Invoke-WebRequest -uri https://download.microsoft.com/download/8/5/C/85C25433-A1
 #servers
 Invoke-WebRequest -uri https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/Windows%20Server%202022%20Security%20Baseline.zip -OutFile "$securitybaselines\Windows Server 2022 Security Baseline.zip"
 Invoke-WebRequest -uri https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/Windows%20Server%202012%20R2%20Security%20Baseline.zip -OutFile "$securitybaselines\Windows Server 2012 R2 Security Baseline.zip"
-Invoke-WebRequest -uri https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/Windows%2010%20Version%201809%20and%20Windows%20Server%202019%20Security%20Baseline.zip -OutFile "$securitibaselines\Windows 10 Version 1809 and Windows Server 2019 Security Baseline.zip"
+Invoke-WebRequest -uri https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/Windows%2010%20Version%201809%20and%20Windows%20Server%202019%20Security%20Baseline.zip -OutFile "$securitybaselines\Windows 10 Version 1809 and Windows Server 2019 Security Baseline.zip"
 Invoke-WebRequest -uri https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/Windows%2010%20Version%201607%20and%20Windows%20Server%202016%20Security%20Baseline.zip -OutFile "$securitybaselines\Windows 10 Version 1607 and Windows Server 2016 Security Baseline.zip"
 
 #clients
