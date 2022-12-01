@@ -8,3 +8,16 @@ get-vm | where {$_.state -eq 'running'} | Get-VMDvdDrive | where {$_.path -ne $n
 
 #endregion DVD
 
+
+#region groups
+
+# get just a list of groups created
+Get-VMGroup | Select -Property Name
+
+# adding a group
+New-VMGroup -Name "all-jve5dtest" -GroupType VMCollectionType
+
+# adding members to a group
+Add-VMGroupMember -Name "all-jve5dtest" -VM (get-vm | where -Property 'State' -eq 'Running')
+
+#endregion groups
