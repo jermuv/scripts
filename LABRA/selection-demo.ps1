@@ -2,7 +2,7 @@
 write-host "valitse:"
 write-host " "
 write-host "1: wac, baselines, sysinternals, sysmonconfig, laps, bginfo"
-write-host "2: wsuscab"
+write-host "2: wsuscab, raportointistuff"
 write-host "3: dotnet, edge offline"
 write-host "4: powerbi desktop, gateway"
 write-host "5: mma, aadconnect"
@@ -96,6 +96,16 @@ if ($valinta -eq 2 -or $valinta -eq 6) {
     if (!(Test-Path $wsusdownload)) { mkdir $wsusdownload }
     invoke-webrequest -uri http://go.microsoft.com/fwlink/?linkid=74689 -outfile "$wsusdownload\wsusscn2.cab"
     
+    $SQLSysClrTypes = "$download\SQLSysClrTypes" 
+    if ($debug) { write-host $SQLSysClrTypes }
+    if (!(Test-Path $SQLSysClrTypes)) { mkdir $SQLSysClrTypes }
+    invoke-webrequest -uri https://download.microsoft.com/download/F/E/D/FEDB200F-DE2A-46D8-B661-D019DFE9D470/ENU/x64/SQLSysClrTypes.msi -outfile "$SQLSysClrTypes\SQLSysClrTypes.msi"
+
+    $WSUSReportViewer = "$download\WSUSReportViewer"
+    if ($debug) { write-host $WSUSReportViewer }
+    if (!(Test-Path $WSUSReportViewer)) { mkdir $WSUSReportViewer }
+    invoke-webrequest -uri https://download.microsoft.com/download/F/B/7/FB728406-A1EE-4AB5-9C56-74EB8BDDF2FF/ReportViewer.msi -outfile "$WSUSReportViewer\ReportViewer.msi"
+
 }
 #endregion wsus cab
 
