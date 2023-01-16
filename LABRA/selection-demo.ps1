@@ -2,7 +2,7 @@
 write-host "valitse:"
 write-host " "
 write-host "1: wac, baselines, sysinternals, sysmonconfig, laps, bginfo"
-write-host "2: wsuscab, raportointistuff"
+write-host "2: wsuscab, raportointistuff, Sql Server Management Studio (latest, 18.12.1)"
 write-host "3: dotnet, edge offline"
 write-host "4: powerbi desktop, gateway"
 write-host "5: mma, aadconnect"
@@ -105,6 +105,12 @@ if ($valinta -eq 2 -or $valinta -eq 6) {
     if ($debug) { write-host $WSUSReportViewer }
     if (!(Test-Path $WSUSReportViewer)) { mkdir $WSUSReportViewer }
     invoke-webrequest -uri https://download.microsoft.com/download/F/B/7/FB728406-A1EE-4AB5-9C56-74EB8BDDF2FF/ReportViewer.msi -outfile "$WSUSReportViewer\ReportViewer.msi"
+
+    # sql server management studio
+    $SSMS = "$download\SSMS"
+    if ($debug) { write-host $SSMS }
+    if (!(Test-Path $SSMS)) { mkdir $SSMS }
+    invoke-webrequest -uri https://download.microsoft.com/download/8/a/8/8a8073d2-2e00-472b-9a18-88361d105915/SSMS-Setup-ENU.exe -outfile "$SSMS\SSMS-Setup-ENU.exe"
 
 }
 #endregion wsus cab
