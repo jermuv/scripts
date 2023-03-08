@@ -14,6 +14,7 @@ foreach ($rivi in $csvdata) {
     $expAccount = $rivi.Samaccountname
 
     ## // debug: write-host $rivi.Samaccountname
+    ##
 
     if ($adconnected) {
         if (!(Get-ADUser -filter "samaccountname -eq '$expAccount'")) {
