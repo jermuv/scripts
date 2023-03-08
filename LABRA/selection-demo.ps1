@@ -1,7 +1,7 @@
 #region valinta
 write-host "valitse:"
 write-host " "
-write-host "1: wac, baselines, sysinternals, sysmonconfig, laps, bginfo"
+write-host "1: wac, baselines, sysinternals, sysmonconfig, laps, bginfo, git"
 write-host "2: wsuscab, raportointistuff, Sql Server Management Studio (latest, 18.12.1)"
 write-host "3: dotnet, edge offline"
 write-host "4: powerbi desktop, gateway"
@@ -82,8 +82,16 @@ if ($valinta -eq 1 -or $valinta -eq 6) {
     Invoke-WebRequest -uri https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/Windows%2010%20version%2021H2%20Security%20Baseline.zip -OutFile "$securitybaselines\Windows 10 version 21H2 Security Baseline.zip"
 
     #other
-    Invoke-WebRequest -uri https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/Microsoft%20Edge%20v98%20Security%20Baseline.zip -Outfile "$securitybaselines\Microsoft Edge v98 Security Baseline.zip"
+    Invoke-WebRequest -uri https://download.microsoft.com/download/8/5/C/85C25433-A1B0-4FFA-9429-7E023E7DA8D8/Microsoft%20Edge%20v98%20Security%20Baseline.zip -Outfile "$securitybaselines\Microsoft Edge v98 Security Baseline.zip"  
     #endregion security baselines
+
+    #region git
+    $gitdownload = "$download\PortableGit"
+    if ($debug) { write-host $gitdownload }
+    if (!(Test-Path $gitdownload)) { mkdir $gitdownload }
+    Invoke-WebRequest -Uri https://github.com/git-for-windows/git/releases/download/v2.39.2.windows.1/PortableGit-2.39.2-64-bit.7z.exe -OutFile "$gitdownload\PortableGit-2.39.2-64-bit.7z.exe"
+    #endregion git
+
 }
 #endregion interesting stuff
 
