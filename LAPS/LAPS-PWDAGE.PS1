@@ -1,7 +1,9 @@
+# This works on the old laps (pre 2023)
+
 # scribu 1
 get-adcomputer -ldapfilter "(!(ms-mcs-admpwdexpirationtime=*))" -properties distinguishedname, `
     name, useraccountcontrol, pwdlastset | select-object distinguishedname, name, useraccountcontrol, `
-    @{n='pwdlastset';e={[datetime]::fromfiletime($_.'pwdlastset').tostring('g')}} | ft
+    @{n='pwdlastset';e={[datetime]::fromfiletime($_.'pwdlastset').tostring('g')}} | Format-Table
 
 # scribu 2
 get-adcomputer -ldapfilter "(!(ms-mcs-admpwdexpirationtime=*))" -properties distinguishedname, `
@@ -12,4 +14,4 @@ name, useraccountcontrol, pwdlastset | select-object distinguishedname, name, us
 get-adcomputer -ldapfilter "(ms-mcs-admpwdexpirationtime=*)" -properties distinguishedname, ms-mcs-admpwdexpirationtime, `
 useraccountcontrol, pwdlastset | select-object distinguishedname, @{n='Computer';e='Name'}, `
 @{n='Laps-Expiration';e={[datetime]::fromfiletime($_.'ms-mcs-admpwdexpirationtime').tostring('g')}}, `
-useraccountcontrol, @{n='pwdlastset';e={[datetime]::fromfiletime($_.'pwdlastset').tostring('g')}} | ft
+useraccountcontrol, @{n='pwdlastset';e={[datetime]::fromfiletime($_.'pwdlastset').tostring('g')}} | Format-Table
