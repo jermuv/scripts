@@ -4,6 +4,7 @@
 
 # Defining variables here
 $strOriginalFolder = Read-Host -Prompt "Provide original folder here"
+$resultsfolder = "c:\temp"
 
 # getting suffix for the files
 $strSuffix = Read-Host -Prompt "Provide suffix for the log files"
@@ -23,8 +24,10 @@ if ($strOriginalFolderExists -eq $true) {
         $subFolder = $subfolder.name
                 
         # finally, list the files and calculate hashes - dump the results as a csv file
-        Get-ChildItem -Path $strOriginalFolder\$subFolder -Recurse -File -Force | Get-FileHash -Algorithm MD5 | Export-Csv -Path c:\temp\$strSuffix$subfolder.csv -Delimiter "|" -UseQuotes Never
+        Get-ChildItem -Path $strOriginalFolder\$subFolder -Recurse -File -Force | Get-FileHash -Algorithm MD5 | Export-Csv -Path $resultsfolder\$strSuffix$subfolder.csv -Delimiter "|" -UseQuotes Never        
     }
+
+    write-host "Task completed - results can be found from $resultsfolder"
 }
 else
 {
