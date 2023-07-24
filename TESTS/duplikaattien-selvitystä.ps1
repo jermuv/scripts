@@ -8,7 +8,7 @@ $strOriginalFolder = Read-Host -Prompt "Provide original folder here"
 # testing if the folder exists
 $strOriginalFolderExists = Test-Path -path $strOriginalFolder
 if ($strOriginalFolderExists -eq $false) {
-    write-host "Error: original folder do not exist"
+    Write-Host "Error: original folder do not exist"
     exit
 }
 
@@ -28,11 +28,11 @@ $strSuffix = Read-Host -Prompt "Provide suffix for the log files"
 $listofsubfolders = Get-ChildItem -Path $strOriginalFolder -Attributes directory
 
 # for easier comparison, each of the subfolder under "root" will get own .csv file which can be used against excel file
-foreach ($subfolder in $listofsubfolders) {
+ForEach-Object ($subfolder in $listofsubfolders) {
     $subFolder = $subfolder.name
             
     # finally, list the files and calculate hashes - dump the results as a csv file
     Get-ChildItem -Path $strOriginalFolder\$subFolder -Recurse -File -Force | Get-FileHash -Algorithm MD5 | Export-Csv -Path $resultsfolder\$strSuffix$subfolder.csv -Delimiter "|" -UseQuotes Never        
 }
 
-write-host "Task completed - results can be found from $resultsfolder"
+Write-Host "Task completed - results can be found from $resultsfolder"
