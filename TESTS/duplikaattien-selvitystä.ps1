@@ -28,7 +28,7 @@ $strSuffix = Read-Host -Prompt "Provide suffix for the log files"
 $listofsubfolders = Get-ChildItem -Path $strOriginalFolder -Attributes directory
 
 # for easier comparison, each of the subfolder under "root" will get own .csv file which can be used against excel file
-ForEach-Object ($subfolder in $listofsubfolders) {
+foreach ($subfolder in $listofsubfolders) {
     $subFolder = $subfolder.name
             
     # finally, list the files and calculate hashes - dump the results as a csv file
