@@ -35,7 +35,7 @@ $strBackupfolderExists = Test-Path -Path $obsidianBackupDirectory
 if ($strBackupfolderExists -eq $false) {
     Write-Host "Error: backup folder do not exist"
     Write-Host "Trying to create a new one"
-    md $obsidianBackupDirectory
+    mkdir -Path $obsidianBackupDirectory
 }
 
 # here should be a routine to check source folder as well
