@@ -1,4 +1,4 @@
-# curl -o winget-apps.ps1 https://raw.githubusercontent.com/jermuv/scripts/refs/heads/master/INSTALL/winget-apps.ps1
+# curl https://raw.githubusercontent.com/jermuv/scripts/master/INSTALL/winget-apps.ps1 -o winget-apps.ps1
 
 Winget install --id Microsoft.Powershell --Source winget
 Winget install --id Microsoft.VisualStudioCode --Source winget
