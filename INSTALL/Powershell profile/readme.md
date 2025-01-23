@@ -2,7 +2,9 @@
 
 # softwares needed
 
+```
 winget install -e --id JanDeDobbeleer.OhMyPosh  --Source winget
+```
 
 # Modules wished
 
@@ -20,11 +22,6 @@ winget install -e --id JanDeDobbeleer.OhMyPosh  --Source winget
 3. Set powershell (7) profile font to be CaskaydiaCove NF
 
 # Set oh-my-posh automatic updates on
-
-**Oh-my-posh if missed the installation earlier one**
-```
-winget install -e --id JanDeDobbeleer.OhMyPosh
-```
 
 **Enable automatic updates**
 ```
