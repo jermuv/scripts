@@ -12,7 +12,7 @@ winget install -e --id JanDeDobbeleer.OhMyPosh  --Source winget
 | Module | Install instructions | Link(s) |
 | --- | ---| --- |
 | PSReadline | Install-Module PSReadLine -AllowPrerelease -Force |  |
-| Terminal Icons | Install-Module -Name Terminal-Icons -Repository PSGallery | |
+| Terminal Icons | ```Install-Module -Name Terminal-Icons -Repository PSGallery``` | |
 | Azure | Install-Module -Name Az -Repository PSGallery | |
 
 # Fonts
