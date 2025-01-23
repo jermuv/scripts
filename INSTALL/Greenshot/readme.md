@@ -27,3 +27,9 @@ Choose correct folder for the captured screenshots
 ## Destination
 
 Choose Save directory + copy to clipboard
+
+# Windows minor adjustment (notification)
+
+- start -> notifications
+- select from the list "notifications from apps and other senders"
+- Remove notifications from Greenshot
