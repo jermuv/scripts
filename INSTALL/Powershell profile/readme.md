@@ -34,6 +34,9 @@ oh-my-posh enable upgrade
 oh-my-posh upgrade --force
 ```
 
+Links for oh-my-posh:
+- https://ohmyposh.dev/docs/faq/
+
 # Profile
 
 File: .\Microsoft.PowerShell_profile.ps1
