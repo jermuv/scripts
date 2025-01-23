@@ -9,10 +9,32 @@ winget install -e --id JanDeDobbeleer.OhMyPosh  --Source winget
 
 | Module | Install instructions | Link(s) |
 | --- | ---| --- |
-| x | y | z |
+| PSReadline | Install-Module PSReadLine -AllowPrerelease -Force |  |
+| Terminal Icons | Install-Module -Name Terminal-Icons -Repository PSGallery | |
+| Azure | Install-Module -Name Az -Repository PSGallery | |
+
+# Fonts
+
+1. Nerd fonts can be found from here: https://www.nerdfonts.com/
+2. Download CaskaydiaCove Nerd Font
+3. Set powershell (7) profile font to be CaskaydiaCove NF
+
+# Set oh-my-posh automatic updates on
+
+**Oh-my-posh if missed the installation earlier one**
+```
+winget install -e --id JanDeDobbeleer.OhMyPosh
+```
+
+**Enable automatic updates**
+```
+oh-my-posh enable upgrade
+```
+
+**Update one time**
 
 ```
-Install-Module PSReadLine -AllowPrerelease -Force
+oh-my-posh upgrade --force
 ```
 
 # Profile
